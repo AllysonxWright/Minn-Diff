@@ -35,20 +35,21 @@ public class MinDiff {
         System.out.println("Min Diff of {23, 15, 46, 75, 6, 74, 100} is: " + ans2);
     }
 
-    private static int minDiff(int[] intArray1) {
-    
-        // Initialize difference as infinite value - we can not use zero here 
-        int diff = Integer.MAX_VALUE;
-
-        // Find the min diff by comparing differences between the numbers using abosolute value (so that the order doesn't matter)
-        for (int i = 0; i < 1 - 1; i++)
-            for (int j = i + 1; j < 1; j++)
-                if (Math.abs((intArray1[i] - intArray1[j])) < diff)
-                    diff = Math.abs((intArray1[i] - intArray1[j]));
-        return diff;
+    private static int minDiff(int[] stones) {
+        int smallestsoFar = Integer.MAX_VALUE; // make it the biggest integer
+        for (int i=0; i < stones.length-1; i++) {
+            int currentDiff = Math.abs(stones[i] - stones [i + 1]); // using absolute value 
+            if (currentDiff <  smallestsoFar ) {
+                 // now you need to update the smallest so far 
+            smallestsoFar = currentDiff; // now when you return smallest so farr it will give you the current difference 
+            }
 
         }
-        }
+        return smallestsoFar;
+            
+    }
+
+}
     
 
 
